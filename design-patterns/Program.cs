@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using design_patters.Builder;
 using design_patters.Factory;
 
 namespace design_patters
@@ -43,6 +44,18 @@ namespace design_patters
 
             //IMessageSender sender = MessageSenderFactory.Create(ContactType.Sms);
             //sender.Send("test");
+
+
+            // ***************************************************************
+            // BUILDER PATTERN
+            // ***************************************************************
+
+            Ad ad = new Ad.AdBuilder()
+                .WithPrice(150000)
+                .WithAddress("Main Street, 152")
+                .WithContactEmail("test@domain.com")
+                .WithSquareMeters(100)
+                .Build();
         }
     }
 }
