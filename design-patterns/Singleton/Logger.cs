@@ -8,6 +8,7 @@ namespace design_patters
         private const string PATH = ".";
         private const string FILENAME = "info.log";
         private readonly string PathFile;
+        private int LineNumber = 1;
 
         private static Logger _logger;
     
@@ -26,8 +27,10 @@ namespace design_patters
         {
             using (StreamWriter writer = File.AppendText(PathFile))
             {
-                writer.WriteLine(message);
+                writer.WriteLine($"{LineNumber} message");
             }
+
+            LineNumber++;
         }
 
         private Logger()

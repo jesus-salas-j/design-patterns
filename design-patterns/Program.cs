@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using design_patters.Factory;
 
 namespace design_patters
 {
@@ -6,24 +7,24 @@ namespace design_patters
     {
         static void Main(string[] args)
         {
-            // *********************************************
-            // CASE 1: Unsafe multithreading execution
-            // *********************************************
+            // ***************************************************************
+            // SINGLETON PATTERN CASE 1: Unsafe multithreading execution
+            // ***************************************************************
 
             // Parallel execution, only one text is left at the file
-            Parallel.Invoke(
+            /*Parallel.Invoke(
               () => Logger.GetInstance().Log("test1"),
               () => Logger.GetInstance().Log("test2")
-            );
+            );*/
 
             // Executing in sequence, both texts are logged to the file
             //Logger.GetInstance().Log("test1");
             //Logger.GetInstance().Log("test2");
 
 
-            // *********************************************
-            // CASE 2: Safe multithreading execution
-            // *********************************************
+            // ***************************************************************
+            // SINGLETON PATTERN CASE 2: Safe multithreading execution
+            // ***************************************************************
 
             // Parallel execution, only one text is left at the file
             /*Parallel.Invoke(
@@ -34,6 +35,14 @@ namespace design_patters
             // Executing in sequence, both texts are logged to the file
             //ThreadSafeLogger.GetInstance().Log("test1");
             //ThreadSafeLogger.GetInstance().Log("test2");
+
+
+            // ***************************************************************
+            // FACTORY PATTERN
+            // ***************************************************************
+
+            //IMessageSender sender = MessageSenderFactory.Create(ContactType.Sms);
+            //sender.Send("test");
         }
     }
 }

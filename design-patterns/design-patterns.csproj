@@ -6,4 +6,12 @@
     <RootNamespace>design_patters</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="IUsersRepository.cs" />
+    <Compile Remove="User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Singleton\" />
+    <Folder Include="Factory\" />
+  </ItemGroup>
 </Project>
