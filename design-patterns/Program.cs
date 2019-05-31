@@ -42,20 +42,24 @@ namespace design_patters
             // FACTORY PATTERN
             // ***************************************************************
 
-            //IMessageSender sender = MessageSenderFactory.Create(ContactType.Sms);
-            //sender.Send("test");
+            MessagingService messagingService = new MessagingService();
+            messagingService.sentMessageTo(new User
+            {
+                ContactType = ContactType.Whatsapp
+            }, "hello");
 
 
             // ***************************************************************
             // BUILDER PATTERN
             // ***************************************************************
-
+            /*
             Ad ad = new Ad.AdBuilder()
                 .WithPrice(150000)
                 .WithAddress("Main Street, 152")
                 .WithContactEmail("test@domain.com")
                 .WithSquareMeters(100)
                 .Build();
+            */               
         }
     }
 }

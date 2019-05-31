@@ -12,7 +12,6 @@ namespace design_patters
 
         private static ThreadSafeLogger Logger;
         private static readonly object InstanceLock = new object();
-        private static readonly object WriterLock = new object();
 
         public static ThreadSafeLogger GetInstance()
         {
@@ -33,15 +32,12 @@ namespace design_patters
 
         public void Log(string message)
         {
-            lock (WriterLock)
+            using (StreamWriter writer = File.AppendText(PathFile))
             {
-                using (StreamWriter writer = File.AppendText(PathFile))
-                {
-                    writer.WriteLine($"{LineNumber} message");
-                }
-
-                LineNumber++;
+                writer.WriteLine($"{LineNumber} message");
             }
+
+            LineNumber++;
         }
 
         private ThreadSafeLogger()

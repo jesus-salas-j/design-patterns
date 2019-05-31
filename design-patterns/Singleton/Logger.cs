@@ -6,7 +6,7 @@ namespace design_patters
     public class Logger
     {
         private const string PATH = ".";
-        private const string FILENAME = "info.log";
+        private const string FILENAME = "history.log";
         private readonly string PathFile;
         private int LineNumber = 1;
 
