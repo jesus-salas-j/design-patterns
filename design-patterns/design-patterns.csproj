@@ -14,5 +14,9 @@
     <Folder Include="Singleton\" />
     <Folder Include="Factory\" />
     <Folder Include="Builder\" />
+    <Folder Include="Adapter\" />
+    <Folder Include="Facade\" />
+    <Folder Include="Decorator\" />
+    <Folder Include="Strategy\" />
   </ItemGroup>
 </Project>

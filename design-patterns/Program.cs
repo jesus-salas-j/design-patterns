@@ -1,5 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using design_patters.Builder;
+using design_patters.Decorator;
 using design_patters.Factory;
 
 namespace design_patters
@@ -43,7 +45,7 @@ namespace design_patters
             // ***************************************************************
 
             MessagingService messagingService = new MessagingService();
-            messagingService.sentMessageTo(new User
+            messagingService.sendMessageTo(new User
             {
                 ContactType = ContactType.Whatsapp
             }, "hello");
@@ -59,7 +61,22 @@ namespace design_patters
                 .WithContactEmail("test@domain.com")
                 .WithSquareMeters(100)
                 .Build();
-            */               
+            */
+
+
+            // ***************************************************************
+            // DECORATOR PATTERN
+            // ***************************************************************
+
+            IClient client = new Client(
+                name: "Jesús",
+                surname: "S",
+                email: "example@gmail.com",
+                phoneNumber: "11111111"
+            );
+
+            SupervisedClientDecorator clientDecorator = new SupervisedClientDecorator(client, "Juan");
+            Console.Out.WriteLine(clientDecorator.Info());
         }
     }
 }
